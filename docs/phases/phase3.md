@@ -1,21 +1,23 @@
-# Phase 3: Editing and Displaying Posts
+# Phase 3: Follows
 
 ## Rails
 ### Models
+Follow
 
 ### Controllers
+FollowsController
+Api::FollowsController
 
 ### Views
+
 
 ## Backbone
 ### Models
-
+* Follow
 ### Collections
-
+* Follows
 ### Views
-* PostForm
+* FollowIndex
+* FollowForm
 
 ## Gems/Libraries
-* Filepicker
-* Markdown-js
-* Bootstrap Markdown

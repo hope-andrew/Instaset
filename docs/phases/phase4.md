@@ -1,20 +1,31 @@
-# Phase 4: User Feeds
+# Phase 4: Comments and Likes
 
 ## Rails
 ### Models
+* Comment
+* Like
 
 ### Controllers
-Api::PostsController (feed)
+Comments Controller (create, new, show)
+API::CommentsController (create, destroy, index, show)
+Likes Controller (create, new, show)
+API::LikesController (create, destroy, index, show)
 
 ### Views
-posts/feed.json.jbuilder
 
 ## Backbone
 ### Models
+* Comment
+* Like
 
 ### Collections
+* Comments
+* Likes
 
 ### Views
-* FeedShow (composite view, contains PostsIndex subview)
+* CommentForm
+* CommentItem
+* CommentIndex (included in PhotoShow CompositeView)
+* LikeIndex (included in PhotoShow CompositeView)
 
 ## Gems/Libraries

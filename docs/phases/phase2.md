@@ -1,29 +1,29 @@
-# Phase 2: Viewing Blogs and Posts
+# Phase 2: Adding and Viewing Photos
 
 ## Rails
 ### Models
+* Photo
 
 ### Controllers
-Api::BlogsController (create, destroy, index, show)
+PhotosController (create, new, show)
 Api::PostsController (create, destroy, show, update)
 
 ### Views
-* blogs/show.json.jbuilder
+* photos/show.json.jbuilder
 
 ## Backbone
 ### Models
-* Blog (parses nested `posts` association)
-* Post
+* Photo
 
 ### Collections
-* Blogs
-* Posts
+* Photos
 
 ### Views
-* BlogForm
-* BlogShow (composite view, contains PostsIndex subview)
-* PostsIndex (composite view, contains PostsIndexItem subviews)
-* PostsIndexItem
-* PostShow
+* PhotoForm
+* PhotoIndex (composite view, contains PostsIndexItem subviews)
+* PhotoIndexItem
+* PhotoShow
+
 
 ## Gems/Libraries
+FilePicker

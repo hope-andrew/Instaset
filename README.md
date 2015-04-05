@@ -1,24 +1,25 @@
-# Flux-capacitr
+# Instaset
 
 [Heroku link][heroku]
 
 [heroku]: http://flux-capacitr.herokuapp.com
 
 ## Minimum Viable Product
-Flux-capacitr is a clone of Tumblr built on Rails and Backbone. Users can:
+Instaset is a clone of Instagram for sunsets built on Rails and Backbone. Users can:
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
-- [x] Create accounts
-- [x] Create sessions (log in)
-- [x] Create blogs
-- [x] Create blog posts
-- [ ] View blogs and posts
-- [ ] Subscribe to blogs
-- [ ] View a feed of subscribed blogs
-- [ ] Tag blog posts
-- [ ] Search for blogs by title
-- [ ] Search for posts by tag
+- [ ] Create accounts
+- [ ] Create sessions (log in)
+- [ ] Post a photo
+- [ ] Post a caption for their photo
+- [ ] View the photos that they posted
+- [ ] Like a photo
+- [ ] Comment on a photo
+- [ ] Follow other Instaset users
+- [ ] View photos of the users they follow
+
+
 
 ## Design Docs
 * [View Wireframes][views]
@@ -29,63 +30,50 @@ Flux-capacitr is a clone of Tumblr built on Rails and Backbone. Users can:
 
 ## Implementation Timeline
 
-### Phase 1: User Authentication, Blog Creation (~1 day)
+### Phase 1: User Authentication and Session Management (~1 day)
 I will implement user authentication in Rails based on the practices learned at
-App Academy. By the end of this phase, users will be able to create blogs using
-a simple text form in a Rails view. The most important part of this phase will
-be pushing the app to Heroku and ensuring that everything works before moving on
-to phase 2.
+App Academy. By the end of this phase, users will be able to create an account
+and sign into their account. The last part of this phase is pushing to Heroku to
+finalize the initial setup of the app.
 
 [Details][phase-one]
 
-### Phase 2: Viewing Blogs and Posts (~2 days)
-I will add API routes to serve blog and post data as JSON, then add Backbone
-models and collections that fetch data from those routes. By the end of this
-phase, users will be able to create blogs and view both blogs and posts, all
-inside a single Backbone app.
+### Phase 2: Posting and Viewing Photos (~2 days)
+I will create a photo resource and add an API route to serve photo data as JSON.
+I will then add a backbone model and collection for photos, as well as views to
+index, show, and add photos for a user. I will use the library Filepicker to
+store the photos and provide an image url to the database. By the end of this
+phase, users will be able to post photos to their account and view individual
+photos.
 
 [Details][phase-two]
 
-### Phase 3: Editing and Displaying Posts (~2 days)
-I plan to use third-party libraries to add functionality to the `PostForm` and
-`PostShow` views in this phase. First I'll need to add a Markdown editor to the
-`PostForm`, and make sure that the Markdown is properly escaped and formatted in
-the `PostShow` view. I also plan to integrate Filepicker for file upload so
-users can add images to blog posts.
+### Phase 3:  User Follows(~1 day)
+I will add a follows resource that joins the a following user to the user that
+they are following. I will then add a backbone collection and model for follows.
+From a 'FollowIndex' view, users will be able to see the photos of other users
+they follow.
 
 [Details][phase-three]
 
-### Phase 4: User Feeds (~1-2 days)
-I'll start by adding a `feed` route that uses the `current_user`'s
-`subscribed_blogs` association to serve a list of blog posts ordered
-chronologically. On the Backbone side, I'll make a `FeedShow` view whose `posts`
-collection fetches from the new route.  Ultimately, this will be the page users
-see after logging in.
+### Phase 4: Comments and Likes (~1 day)
+I will add resources for Comments and Likes and include API routes to serve JSON
+to backbone. I will then create models and collections for both and add 'Index'
+views to the 'PhotoShow' CompositeView. By the end of this phase, users will be
+able to like and comment on photos and view the users that like a photo.  
 
 [Details][phase-four]
 
-### Phase 5: Searching for Blogs and Posts (~2 days)
-I'll need to add `search` routes to both the Blogs and Posts controllers. On the
-Backbone side, there will be a `SearchResults` composite view has `BlogsIndex`
-and `PostsIndex` subviews. These views will use plain old `blogs` and `posts`
-collections, but they will fetch from the new `search` routes.
-
-[Details][phase-five]
 
 ### Bonus Features (TBD)
-- [ ] "Like" button and counter for posts
-- [ ] Custom blog urls
-- [ ] Pagination/infinite scroll
-- [ ] Activity history (e.g. likes, reblogs, taggings)
-- [ ] Post types (image posts, quote posts, etc)
-- [ ] Reblogging
-- [ ] Multiple sessions/session management
-- [ ] User avatars
-- [ ] Typeahead search bar
+
+- [ ] Have a feed of photos
+- [ ] Have the feed feature recent photos from followers
+- [ ] Tag other users in photos
+- [ ] Stamp a time when the sunset occurred
+- [ ] View a timeline of stamped photos
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
 [phase-three]: ./docs/phases/phase3.md
 [phase-four]: ./docs/phases/phase4.md
-[phase-five]: ./docs/phases/phase5.md
-
