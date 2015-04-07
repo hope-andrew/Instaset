@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
+    @user = User.new
     render :new
   end
 
@@ -9,7 +10,7 @@ class SessionsController < ApplicationController
 
     if @user
       sign_in(@user)
-      render json: @user
+      redirect_to user_url(@user)
     else
       flash.now[:error] = ["Cannot find user with that username/password"]
       render :new

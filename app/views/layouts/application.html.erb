@@ -12,12 +12,11 @@
 <br>
 <%= yield %>
 
+
+<br>
 <% if signed_in? %>
 <%= current_user.username %>
 <%= button_to "Sign Out", session_url, method: :delete %>
-<% else %>
-<%= link_to "Signup", new_user_url %>
-<%= link_to "Sign In", new_session_url %>
 <% end %>
 
 <% if flash[:error] %>

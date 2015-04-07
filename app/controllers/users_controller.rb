@@ -9,10 +9,20 @@ class UsersController < ApplicationController
 
     if @user.save!
       sign_in(@user)
-      render json: @user
+      redirect_to user_url(@user)
     else
       flash.now[:error] = [@user.errors.full_messages]
       render :new
+    end
+  end
+
+  def show
+    @user = current_user
+
+    if @user
+      render :show
+    else
+      render json: "No user found"
     end
   end
 

@@ -28,6 +28,13 @@ class User < ActiveRecord::Base
     self.session_token
   end
 
+  # def make_user_guest
+  #   @user = User.find_by_username("guest_user")
+  #   @current_user = @user
+  #   sign_in(@user)
+  #   @user
+  # end
+
   def self.find_by_credentials(username, password)
     @user = User.find_by_username(username)
 
