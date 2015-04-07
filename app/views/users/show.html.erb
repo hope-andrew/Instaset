@@ -1,3 +1,12 @@
 <h2> User Show Page </h2>
 
-<%= @user.username %>
+<p>
+  <% @page_user = User.find_by_id(params[:id]) %>
+  Page Username : <%= @page_user.username %>
+</p>
+
+<p>
+   User ID : <%= @user.id %>
+</p>
+
+<br>
