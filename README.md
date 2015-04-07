@@ -2,7 +2,7 @@
 
 [Heroku link][heroku]
 
-[heroku]: http://flux-capacitr.herokuapp.com
+[heroku]: https://instaset.herokuapp.com/
 
 ## Minimum Viable Product
 Instaset is a clone of Instagram for sunsets built on Rails and Backbone. Users can:
