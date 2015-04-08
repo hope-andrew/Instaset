@@ -4,8 +4,6 @@ window.Instaset = {
   Views: {},
   Routers: {},
   initialize: function() {
-    alert("THIS IS WORKING");
-
     new Instaset.Routers.Router({
       $rootEl: $("#main")
     });
