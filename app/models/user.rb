@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
 
   attr_reader :password
 
+  has_many :photos
+
   def password=(password)
     @password = password
 
