@@ -3,24 +3,24 @@
 ## New Session
 ![new-session]
 
-## Feed Show (landing page)
-![feed-show]
+## Photos Index (landing page)
+![photos-index]
 
-## Blog Show
-![blog-show]
+## Photo Show
+![photo-show]
 
-## Post Show
-![post-show]
+## Comments Index/Show
+![comments-views]
 
-## Post Form
-![post-form]
+## New Photo
+![new-photo]
 
-## Search Results
-![search-results]
+## Follows Index
+![follows-index]
 
-[new-session]: ./wireframes/new_session.png
-[feed-show]: ./wireframes/feed_show.png
-[blog-show]: ./wireframes/blog_show.png
-[post-show]: ./wireframes/post_show.png
-[post-form]: ./wireframes/post_form.png
-[search-results]: ./wireframes/search_results.png
+[new-session]: ./wireframes/NewSessionView.png
+[photos-index]: ./wireframes/PhotoIndexView.png
+[photo-show]: ./wireframes/PhotoShowView.png
+[comments-views]: ./wireframes/CommentViews.png
+[new-photo]: ./wireframes/NewPhotoForm.png
+[follows-index]: ./wireframes/FollowsIndexView.png
