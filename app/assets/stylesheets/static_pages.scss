@@ -8,3 +8,15 @@ img {
   max-height: 300px;
   max-width: 300px;
 }
+
+div.photos {
+  display: inline-block;
+  float: left;
+  width: 55%
+}
+
+div.sidebar {
+  display: inline-block;
+  float: right;
+  width: 35%;
+}

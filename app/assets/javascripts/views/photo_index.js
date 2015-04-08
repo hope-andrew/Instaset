@@ -1,51 +1,32 @@
-Instaset.Views.PhotoIndex = Backbone.View.extend({
+Instaset.Views.PhotoIndex = Backbone.CompositeView.extend({
 
   template: JST["photos/index"],
 
   initialize: function() {
-    this.listenTo(this.collection, "sync add", this.render);
+    this.listenTo(this.collection, "sync", this.render);
+    this.listenTo(this.collection, 'add', this.addPhoto);
+
+    var newForm = new Instaset.Views.NewPhotoForm({collection: this.collection});
+    this.addSubview("div.sidebar", newForm);
+    this.renderPhotos();
   },
 
-  events: {
-    "click button.upload-photo": "uploadPhoto",
-    "click button.new-photo": "addPhoto"
-  },
 
   render: function () {
+    // this.$el.empty();
     var renderedContent = this.template({photos: this.collection});
     this.$el.html(renderedContent);
+
+    this.attachSubviews();
     return this;
   },
 
-  uploadPhoto: function(event) {
-    event.preventDefault();
-    $target = $(event.currentTarget);
-
-      filepicker.pick(
-      function(Blob){
-        console.log(Blob.url);
-        $target.val(Blob.url);
-      }
-    );
+  renderPhotos: function() {
+    this.collection.each(this.addPhoto.bind(this));
   },
 
-
-  addPhoto: function(event) {
-    event.preventDefault();
-
-    var $photoButton = $("button.upload-photo");
-    debugger;
-    var newPhoto = new Instaset.Models.Photo();
-    newPhoto.set({img_url: $photoButton.val(), caption: "test image"});
-    debugger;
-    newPhoto.save({}, {
-      success: function() {
-        this.collection.add(newPhoto);
-      }.bind(this),
-
-      error: function() {
-        console.log("didnt work");
-      }
-    });
+  addPhoto: function(photo) {
+    var view = new Instaset.Views.PhotoItem({ model: photo });
+    this.addSubview("ul.photo-list", view);
   }
 });
