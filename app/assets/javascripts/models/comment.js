@@ -1,3 +1,10 @@
 Instaset.Models.Comment = Backbone.Model.extend({
-  urlRoot: "api/photos/:photo_id"
+
+  initialize: function(options) {
+    this.photo = options.photo;
+  },
+
+  urlRoot: function () {
+    return this.photo.url() + "/comments";
+  }
 });

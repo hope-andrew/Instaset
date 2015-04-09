@@ -1,5 +1,13 @@
 Instaset.Collections.Comments = Backbone.Collection.extend({
-  url: "api/photos/:photo_id",
+
+  initialize: function(options) {
+    
+  },
+
+  url: function() {
+    return this.photo.url() + "/comments";
+  },
+
   model: Instaset.Models.Comment,
-  
+
 });

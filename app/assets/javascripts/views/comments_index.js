@@ -1,11 +1,15 @@
 Instaset.Views.CommentsIndex = Backbone.CompositeView.extend({
   template: JST["comments/index"],
 
-  initialize: function() {
-    // this.listenTo(this.collection, "sync", this.render);
-    // this.listenTo(this.collection, "add", this.addComment);
+  initialize: function(options) {
+    this.photo = options.photo;
+    this.listenTo(this.collection, "sync", this.render);
+    this.listenTo(this.collection, "add", this.addComment);
 
     this.renderComments();
+
+    var newCommentForm = new Instaset.Views.NewCommentForm({ collection: this.collection, photo: this.photo});
+    this.addSubview("div.new-comment", newCommentForm);
   },
 
   render: function() {
@@ -13,7 +17,7 @@ Instaset.Views.CommentsIndex = Backbone.CompositeView.extend({
     this.$el.html(renderedContent);
 
     this.attachSubviews();
-    return this.$el;
+    return this;
   },
 
   renderComments: function() {
