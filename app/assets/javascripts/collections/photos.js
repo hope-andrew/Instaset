@@ -11,7 +11,7 @@ Instaset.Collections.Photos = Backbone.Collection.extend({
     var photos = this;
 
     if (!photo) {
-      photo = Instaset.Models.Photo({ id: id});
+      photo = new Instaset.Models.Photo({ id: id});
       photo.fetch({
         success: function() {
           photos.add(photo);

@@ -15,8 +15,20 @@ div.photos {
   width: 55%
 }
 
+div.photo {
+  display: inline-block;
+  float: left;
+  width: 65%;
+}
+
 div.sidebar {
   display: inline-block;
   float: right;
   width: 35%;
+}
+
+img.photo-show {
+  height: auto;
+  width: auto;
+  max-width: 65%;
 }

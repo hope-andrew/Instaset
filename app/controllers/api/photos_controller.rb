@@ -19,10 +19,10 @@ class Api::PhotosController < ApplicationController
   end
 
   def show
-    @board = Photo.find(params[:id])
+    @photo = Photo.find(params[:id])
 
-    if @board
-      render json: @board
+    if @photo
+      render :show
     else
       render json: ["did not find a photo with that id"], status: 403
     end
