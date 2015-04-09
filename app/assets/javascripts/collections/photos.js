@@ -22,4 +22,5 @@ Instaset.Collections.Photos = Backbone.Collection.extend({
     }
     return photo;
   }
+
 });
