@@ -45,6 +45,14 @@ class User < ActiveRecord::Base
   #   @user
   # end
 
+  def follow_ids
+    Follow.select(:follow_id).where(follower_id: self.id)
+  end
+
+  def following
+    self.follow_ids.map{|id| User.find(id)}
+  end
+
   def self.find_by_credentials(username, password)
     @user = User.find_by_username(username)
 

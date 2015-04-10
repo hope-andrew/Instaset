@@ -14,8 +14,11 @@ class Api::PhotosController < ApplicationController
   end
 
   def index
-    @photos = current_user.photos
-    render json: @photos
+    @pics = Photo.find_feed_pics(current_user.follow_ids)
+    @pics += current_user.photos
+    render :index
+    # @photos = current_user.photos
+    # render json: @photos
   end
 
   def show
