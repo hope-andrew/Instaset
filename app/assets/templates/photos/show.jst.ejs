@@ -1,7 +1,9 @@
 <div class="photo" >
   <img class="photo-show" src="<%= photo.escape("img_url") %>">
 <br>
-  <h3> <%= photo.escape("caption") %>
+  <h3> <%= photo.escape("caption") %> </h3>
+
+  <h4> <%= photo.likes().length %> Likes </h4> 
 
 <br>
   <div class="comments-index" >
@@ -9,7 +11,7 @@
 </div>
 
 <div class="sidebar" >
-  <h2> Username goes here </h2>
+  <h2> <%= photo.escape("username")%>  </h2>
   <a href="#"> Username's Photos </a>
   <br>
   <a href="#"> Like </a>

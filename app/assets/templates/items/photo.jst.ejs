@@ -1,4 +1,14 @@
-<%= photo.escape("caption") %> <br>
+<strong> <%= photo.escape("username") %> </strong> ||
+<%= photo.escape("caption") %> ||
+
+<% if (photo.comments().length == 1 ) { %>
+<%= photo.comments().length + " Comment" %>
+<% } else {%>
+<%=  photo.comments().length + " Comments" %>
+<% } %>
+
+<%= photo.likes().length %> Likes 
+
 <a href="/#/photos/<%= photo.id%>">
 <img src="<%= photo.escape("img_url") %>" alt="alt title" >
 </a>

@@ -5,3 +5,16 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+bruce = User.new({
+  username: "BruceBanner",
+  password: "password"})
+bruce_photo_1 = bruce.photos.new({
+  user_id: bruce.id,
+  img_url: "https://www.filepicker.io/api/file/tUd0x98MR2SHOdeRgYyU",
+  caption: "Los Alamos National Lab"})
+bruce.photos.first.comments.new({
+  author_id: bruce.id,
+  photo_id: bruce_photo_1.id,
+  body: "The laboratory at sunset"
+  })

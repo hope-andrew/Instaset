@@ -6,5 +6,9 @@ json.array! @pics do |pic|
     json.author User.find(comment.author_id).username
   end
 
-  json.user pic.user :username
+  json.extract! pic.user, :username
+
+  json.likes pic.likers do |liker|
+    json.liker liker.username
+  end
 end

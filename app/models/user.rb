@@ -17,6 +17,16 @@ class User < ActiveRecord::Base
     dependent: :destroy
   )
 
+  has_many(
+    :likes,
+    primary_key: :id,
+    foreign_key: :liker,
+    class_name: "Like",
+    dependent: :destroy
+  )
+
+  has_many :liked_photos, through: :likes, source: :photo
+
   def password=(password)
     @password = password
 
