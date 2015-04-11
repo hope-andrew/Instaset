@@ -18,6 +18,10 @@
 <br>
 <%= yield %>
 
+<script charset="utf-8">
+  Instaset.currentUser = <%= current_user.to_json.html_safe if signed_in? %>
+</script>
+
 
 <br>
 <% if signed_in? %>

@@ -16,6 +16,7 @@
 //= require backbone
 //= require instaset
 //= require composite_view
+//= require bootstrap
 //= require jquery.serializejson
 //= require_tree ../templates
 //= require_tree ./models
