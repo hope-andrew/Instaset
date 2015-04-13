@@ -2,15 +2,22 @@ Instaset.Views.PhotoShow = Backbone.CompositeView.extend({
   template: JST["photos/show"],
 
   initialize: function() {
-    var likeView = new Instaset.Views.Like({ liked: this.model.likedByCurrentUser, photo: this.model });
-    var commentsView = new Instaset.Views.CommentsIndex({ collection: this.model.comments(), photo: this.model});
-    this.listenTo(this.model, "sync", this.render);
+    this.collection = this.model.likes();
+    this.listenTo(this.model, "sync add destroy", this.render);
+    this.listenTo(this.collection, "sync add remove", this.render);
+
+    var likeView = new Instaset.Views.Like({
+      model: this.model.likeByCurrentUser(),
+      collection: this.model.likes()
+    });
+
+    var commentsView = new Instaset.Views.CommentsIndex({
+      collection: this.model.comments(),
+      photo: this.model
+    });
+
     this.addSubview("div.comments-index", commentsView);
     this.addSubview("div.like-button", likeView);
-  },
-
-  events: {
-    "click button.like": "likePhoto"
   },
 
   render: function() {
@@ -19,17 +26,4 @@ Instaset.Views.PhotoShow = Backbone.CompositeView.extend({
     this.attachSubviews();
     return this;
   },
-
-  likePhoto: function(event) {
-    //event.preventDefault();
-    var newLike = new Instaset.Models.Like({ photo: this.model });
-    newLike.set({ photo_id: this.model.id });
-    newLike.save({}, {
-      success: function() {
-        this.model.likes().add(newLike);
-      }.bind(this)
-    });
-  }
-
-
 });

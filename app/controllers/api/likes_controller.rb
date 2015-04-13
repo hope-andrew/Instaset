@@ -9,4 +9,10 @@ class Api::LikesController < ApplicationController
       render json: ["could not create like"], status: 422
     end
   end
+
+  def destroy
+    @like = Like.find(params[:id])
+    @like.destroy
+    render json: ["like destroyed"]
+  end
 end
