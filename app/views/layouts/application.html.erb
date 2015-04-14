@@ -13,10 +13,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<a href="#" >
-<h1> Instaset </h1>
-</a>
-<br>
+
 <%= yield %>
 
 <script charset="utf-8">
@@ -25,10 +22,6 @@
 
 
 <br>
-<% if signed_in? %>
-<%= current_user.username %>
-<%= button_to "Sign Out", session_url, method: :delete %>
-<% end %>
 
 <% if flash[:error] %>
 <% flash[:error].each do |error| %>

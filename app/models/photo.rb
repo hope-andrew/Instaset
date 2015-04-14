@@ -15,7 +15,9 @@ class Photo < ActiveRecord::Base
 
   has_many :likers, through: :likes, source: :user
 
+  default_scope { order(:created_at) }
+
   def self.find_feed_pics(follow_ids)
-    Photo.where(user_id: follow_ids)
+    Photo.where(user_id: follow_ids).order("created_at DESC")
   end
 end

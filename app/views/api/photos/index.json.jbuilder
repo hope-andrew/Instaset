@@ -1,5 +1,5 @@
 json.array! @pics do |pic|
-  json.extract! pic, :id, :img_url, :user_id, :caption
+  json.extract! pic, :id, :img_url, :user_id, :caption, :created_at
 
   json.comments pic.comments do |comment|
     json.extract! comment, :author_id, :photo_id, :body

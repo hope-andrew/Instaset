@@ -13,7 +13,8 @@ Instaset.Views.PhotoIndex = Backbone.CompositeView.extend({
 
 
   render: function () {
-    var renderedContent = this.template({photos: this.collection});
+    // this.collection.sort();
+    var renderedContent = this.template({  photos: this.collection });
     this.$el.html(renderedContent);
 
     this.attachSubviews();
@@ -26,6 +27,6 @@ Instaset.Views.PhotoIndex = Backbone.CompositeView.extend({
 
   addPhoto: function(photo) {
     var view = new Instaset.Views.PhotoItem({ model: photo });
-    this.addSubview("ul.photo-list", view);
+    this.unshiftSubview("ul.photo-list", view);
   }
 });

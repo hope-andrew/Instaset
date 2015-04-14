@@ -34,7 +34,12 @@ Instaset.Views.NewPhotoForm = Backbone.View.extend({
     var $photoButton = $("button.upload-photo");
     var $caption =$("input.caption-input");
     var newPhoto = new Instaset.Models.Photo();
-    newPhoto.set({img_url: $photoButton.val(), caption: $caption.val()});
+    newPhoto.set({
+      img_url: $photoButton.val(),
+      caption: $caption.val(),
+      user_id: Instaset.currentUser.id,
+      username: Instaset.currentUser.username
+    });
     newPhoto.save({}, {
       success: function() {
         this.collection.add(newPhoto);

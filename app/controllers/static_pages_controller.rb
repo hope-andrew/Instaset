@@ -1,8 +1,12 @@
 class StaticPagesController < ApplicationController
 
-  before_action :require_logged_in
+  # before_action :require_logged_in, only: [:root]
 
   def root
-    render :root
+    if signed_in?
+      render :root
+    else
+      render :splash
+    end
   end
 end

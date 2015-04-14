@@ -5,10 +5,10 @@
 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
 <label> Username </label>
-<input type="text" name="user[username]" >
+<input type="text" name="user[username]" class="username" >
 
 <label> Password </label>
-<input type="password" name="user[password]">
+<input type="password" name="user[password]" class="password">
 
 <input type="submit" value="Sign In" >
 </form>
@@ -18,3 +18,28 @@
 <h3> Don't have an account? </h3>
 
 <%= link_to "Signup", new_user_url %>
+
+<h3> Or sign in as a guest! </h3>
+
+<button class="guest-signin" > Guest </button>
+
+<script src="jquery.js"></script>
+<script src="typed.js."></script>
+<script>
+  $(function(){
+    var options2 = {
+      strings: ["password"],
+      typeSpeed: 0
+    }
+    var options = {
+      strings: ["andrew2"],
+      typeSpeed: 0,
+      onStringTyped: function() {
+        $("input.password").typed(options2);
+      }
+    }
+    $("button.guest-signin").click(function(){
+      $("input.username").typed(options);
+    });
+  });
+</script>

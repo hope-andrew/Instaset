@@ -1,0 +1,94 @@
+<div class="home-bckgrd" > </div>
+<div class="home-bg">
+<div class="bank" >
+<h2> Instaset is Instagram for Sunsets </h2>
+
+<br>
+
+<h3> Instaset allows you to: </h3>
+
+<br>
+
+<ul style="list-style-type:none">
+  <li> Post pictures of your sunsets </li>
+  <li> View other photos of sunsets </li>
+  <li> Like and comment on sunsets </li>
+</ul>
+
+<br>
+
+<h3> Come find out what Instaset is all about... </h3>
+
+<a href="/users/new" >Sign Up</a> for Instaset!
+<br>
+Already an Instaset user? <a href="/session/new" >Sign in! </a>
+<br>
+Want to check it out? Take a look around as a <a href="" >Guest! </a>
+</div>
+</div>
+
+<div class="modal fade" id="login-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title" >Sign In</h3>
+      </div>
+      <div class="modal-body">
+        <form action="<%= session_url %>" method="POST" >
+
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+        <label> Username </label>
+        <input type="text" name="user[username]" class="username" >
+
+        <label> Password </label>
+        <input type="password" name="user[password]" class="password">
+
+        <input type="submit" value="Sign In" class="btn btn-primary" >
+
+        </form>
+        <h4> Or sign in as a guest! </h4>
+
+        <button class="guest-signin btn btn-primary" > Guest </button>
+
+        <p> Don't have an account? </p>
+
+        <%= link_to "Signup", new_user_url, class: "btn btn-default" %>
+
+
+        <script src="jquery.js"></script>
+        <script src="typed.js."></script>
+        <script>
+          $(function(){
+            var options2 = {
+              strings: ["password"],
+              typeSpeed: 0
+            }
+            var options = {
+              strings: ["andrew2"],
+              typeSpeed: 0,
+              onStringTyped: function() {
+                $("input.password").typed(options2);
+              }
+            }
+            $("button.guest-signin").click(function(){
+              $("input.username").typed(options);
+            });
+          });
+        </script>
+
+
+      </div>
+      <!-- <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div> -->
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#login-modal">
+  Sign In
+</button>

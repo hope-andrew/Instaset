@@ -35,7 +35,8 @@ Instaset.Models.Photo = Backbone.Model.extend({
     }
 
     if (response.idOfLikeByCurrentUser) {
-      this.likeByCurrentUser().set(response.idOfLikeByCurrentUser[response.idOfLikeByCurrentUser.length - 1], {parse: true});
+      var like = response.idOfLikeByCurrentUser;
+      this.likeByCurrentUser().set(like[like.length - 1], {parse: true});
     }
     return response;
   }
