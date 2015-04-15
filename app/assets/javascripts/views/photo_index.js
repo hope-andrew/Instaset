@@ -2,6 +2,10 @@ Instaset.Views.PhotoIndex = Backbone.CompositeView.extend({
 
   template: JST["photos/index"],
 
+  events: {
+    "click button.load-more": "loadMore"
+  },
+
   initialize: function() {
     this.listenTo(this.collection, "sync", this.render);
     this.listenTo(this.collection, 'add', this.addPhoto);
@@ -13,7 +17,6 @@ Instaset.Views.PhotoIndex = Backbone.CompositeView.extend({
 
 
   render: function () {
-    // this.collection.sort();
     var renderedContent = this.template({  photos: this.collection });
     this.$el.html(renderedContent);
 
@@ -28,5 +31,15 @@ Instaset.Views.PhotoIndex = Backbone.CompositeView.extend({
   addPhoto: function(photo) {
     var view = new Instaset.Views.PhotoItem({ model: photo });
     this.unshiftSubview("ul.photo-list", view);
+  },
+
+  loadMore: function(event) {
+  var view = this;
+    if (view.collection.page < view.collection.total_pages) {
+      view.collection.fetch({
+        data: { page: view.collection.page + 1 },
+        remove: false
+      });
+    }
   }
 });

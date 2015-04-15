@@ -13,7 +13,11 @@ Instaset.Routers.Router = Backbone.Router.extend({
   },
 
   index: function() {
-    this.collection.fetch();
+    this.collection.fetch({
+      remove: false,
+      data: { page:  this.collection.page },
+      success: function(){}
+    });
     var photoIndex = new Instaset.Views.PhotoIndex({collection: this.collection});
     this._swapView(photoIndex);
   },

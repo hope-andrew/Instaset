@@ -14,10 +14,8 @@ class Api::PhotosController < ApplicationController
   end
 
   def index
-    # do this in one SQL query?
-    @pics = Photo.find_feed_pics(current_user.follow_ids)
-    @pics += current_user.photos
-    @pics = @pics.sort { |x, y| x.created_at <=> y.created_at }
+    @pics = Photo.find_feed_pics(current_user.follow_ids, current_user.id).page(params[:page])
+    @page = params[:page] || 1
     render :index
     # @photos = current_user.photos
     # render json: @photos

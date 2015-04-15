@@ -4,6 +4,12 @@ Instaset.Collections.Photos = Backbone.Collection.extend({
 
   // comparator: "created_at",
 
+  parse: function(response) {
+    this.page = response.page;
+    this.total_pages = response.total_pages;
+    return response.pics;
+  },
+
   getOrFetch: function(id) {
     var photo = this.get(id);
     var photos = this;
