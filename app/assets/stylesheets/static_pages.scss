@@ -12,9 +12,9 @@ img {
 div.photos {
   display: inline-block;
   float: left;
-  width: 55%;
-  margin-left: 10%;
-  background-color: #E0E1E2;
+  width: 50%;
+  margin: 0 auto;
+  background: #E0E1E2 url("//instagramstatic-a.akamaihd.net/bluebar/5021840/images/shared/noise-2.png");
   box-shadow: 1px 0 2px gray inset, -1px 0 2px gray inset;
 }
 
@@ -26,8 +26,8 @@ div.photo {
 
 div.sidebar {
   display: inline-block;
-  float: right;
-  width: 35%;
+  float: left;
+  width: 224px;
 }
 
 img.photo-show {
@@ -51,6 +51,12 @@ div.bank {
   background-color: #EEEEEC
 }
 
+div#main {
+  background: #edeeef url("//instagramstatic-a.akamaihd.net/bluebar/5021840/images/shared/noise-2.png");
+  min-height: 900px;
+  padding-top: 50px;
+}
+
 div.home-bckgrd {
   background-color: #38a;
   width: 100%;
@@ -61,13 +67,6 @@ div.home-bckgrd {
 nav.navbar {
   background-color: #517fa4
 }
-
-// .navbar p.navbar-text {
-//   min-height: 25px;
-//   color: #CCD8E1;
-//   margin-right: 30px;
-//   margin-bottom: 0 px;
-
 
 p.navbar-text.navbar-username {
   min-height: 25px;
@@ -93,4 +92,19 @@ body > nav.navbar.navbar-default.navbar-fixed-top {
 
 div.backdrop {
   background-color: #EDEEEF;
+}
+
+div.photo-index {
+  text-align: center;
+  max-width: 1024px;
+  margin: auto;
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
 }

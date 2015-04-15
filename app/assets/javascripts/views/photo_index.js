@@ -2,6 +2,8 @@ Instaset.Views.PhotoIndex = Backbone.CompositeView.extend({
 
   template: JST["photos/index"],
 
+  className: "photo-index clearfix",
+
   events: {
     "click button.load-more": "loadMore"
   },
