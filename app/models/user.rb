@@ -10,6 +10,14 @@ class User < ActiveRecord::Base
   has_many :photos
 
   has_many(
+    :follows,
+    primary_key: :id,
+    foreign_key: :follower_id,
+    class_name: "Follow",
+    dependent: :destroy
+  )
+
+  has_many(
     :comments,
     primary_key: :id,
     foreign_key: :author_id,
@@ -56,7 +64,8 @@ class User < ActiveRecord::Base
   # end
 
   def follow_ids
-    Follow.select(:follow_id).where(follower_id: self.id)
+    # Follow.select(:follow_id).where(follower_id: self.id)
+    self.follows.map{|follow| follow.follow_id }
   end
 
   def following

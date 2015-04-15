@@ -2,7 +2,7 @@ Instaset.Collections.Photos = Backbone.Collection.extend({
   url: "/api/photos",
   model: Instaset.Models.Photo,
 
-  // comparator: "created_at",
+  comparator: "created_at",
 
   parse: function(response) {
     this.page = response.page;
