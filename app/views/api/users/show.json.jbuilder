@@ -9,3 +9,8 @@ end
 json.follows @user.following do |follow|
   json.extract! follow, :id, :username
 end
+
+json.photos_count @user.photos.count
+json.followers @user.followers.count
+json.following @user.follows.count
+json.likes @user.likes.count

@@ -1,4 +1,4 @@
-<strong> <%= photo.escape("username") %> </strong> ||
+<a href="/#/users/<%= photo.escape("user_id") %>" >  <strong> <%= photo.escape("username") %> </strong> </a> ||
 <%= photo.escape("caption") %> ||
 
 <% if (photo.comments().length == 1 ) { %>

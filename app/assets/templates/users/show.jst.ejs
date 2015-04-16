@@ -1,9 +1,35 @@
-<h2> <%= user.escape("username") %>'s Page </h2>
+<div class="outer-div container-fluid">
+  <div class="row well well-lg" >
+    <div class="col-md-8">
+      <h2 class="name-title"><%= user.escape("username") %></h2>
+    </div>
+    <div class="col-md-4" >
+      <h3><span class="label label-default stat-label"><%= user.get("photos_count")%> Photos</span>
+      <span class="label label-default stat-label"><%= user.get("likes")%> Likes</span>
+      <span class="label label-default stat-label"><%= user.get("followers")%> Followers</span></h3>
+    </div>
+  </div>
+</div>
 
-<ul>
-  <% photos.each(function(photo){ %>
-    <li>
-    <img src="<%= photo.escape("img_url") %>" >
-  </li>
-  <% }) %>
-</ul>
+<div class="outer-div container-fluid" >
+  <div class="row" >
+    <% photos.each( function(photo) { %>
+    <div class="col-md-4">
+      <div class="panel panel-default" >
+        <div class="panel-body" >
+          <a href="/#/photos/<%= photo.escape("id") %>">
+            <div class="img-container">
+            <img src="<%= photo.escape("img_url") %>" >
+            </div>
+          </a>
+        </div>
+
+        <div class="panel-footer">
+          <%= photo.escape("caption") %>
+          <span class="badge badge-like"><%= photo.get('likes') %></span>
+        </div>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+</div>

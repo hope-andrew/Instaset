@@ -13,7 +13,7 @@
 
 <div class="sidebar" >
   <h2> <%= photo.escape("username")%>  </h2>
-  <a href="#"> Username's Photos </a>
+  <a href="/#/users/<%= photo.escape("user_id") %>"> <%= photo.escape("username")%>'s Photos </a>
   <br>
   <a href="#"> Like </a>
   <br>

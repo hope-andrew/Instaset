@@ -56,20 +56,21 @@ class User < ActiveRecord::Base
     self.session_token
   end
 
-  # def make_user_guest
-  #   @user = User.find_by_username("guest_user")
-  #   @current_user = @user
-  #   sign_in(@user)
-  #   @user
-  # end
-
   def follow_ids
-    # Follow.select(:follow_id).where(follower_id: self.id)
     self.follows.map{|follow| follow.follow_id }
   end
 
   def following
     self.follow_ids.map{|id| User.find(id)}
+  end
+
+  def followers
+    Follow.where(follow_id: self.id)
+  end
+
+  def likes
+    photo_ids_arr = self.photos.map{|photo| photo.id }
+    Like.where(liked_photo: photo_ids)
   end
 
   def self.find_by_credentials(username, password)

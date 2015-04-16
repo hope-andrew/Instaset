@@ -11,7 +11,7 @@ Instaset.Models.Photo = Backbone.Model.extend({
 
   likes: function() {
     if (!this._likes) {
-      this._likes = new Instaset.Collections.Likes([], { photo: this });
+      this._likes = new Instaset.Collections.Likes();
     }
     return this._likes;
   },
