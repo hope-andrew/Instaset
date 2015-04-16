@@ -18,11 +18,10 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
-
     if @user
       render :show
     else
-      render json: "No user found"
+      render json: "No user found", status: 403
     end
   end
 

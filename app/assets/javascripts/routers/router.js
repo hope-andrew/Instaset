@@ -9,7 +9,8 @@ Instaset.Routers.Router = Backbone.Router.extend({
     "": "index",
     "photos/new": "new",
     "photos/:id/edit": "edit",
-    "photos/:id": "show"
+    "photos/:id": "show",
+    "users/:id": "userShow"
   },
 
   index: function() {
@@ -35,6 +36,13 @@ Instaset.Routers.Router = Backbone.Router.extend({
 
   edit: function() {
 
+  },
+
+  userShow: function(id) {
+    user = new Instaset.Models.User({ id: id });
+    user.fetch();
+    var userShow = new Instaset.Views.userShow({model: user, collection: user.photos()});
+    this._swapView(userShow);
   },
 
   _swapView: function(view) {

@@ -1,0 +1,9 @@
+<h2> <%= user.escape("username") %>'s Page </h2>
+
+<ul>
+  <% photos.each(function(photo){ %>
+    <li>
+    <img src="<%= photo.escape("img_url") %>" >
+  </li>
+  <% }) %>
+</ul>

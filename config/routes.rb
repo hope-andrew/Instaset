@@ -4,11 +4,12 @@ Rails.application.routes.draw do
   # resources :static_pages, only: [:root, :splash]
   get 'static_pages/root', to: "static_pages#root"
   get 'static_pages/splash', to: "static_pages#splash"
-  resources :users
+  resources :users, only: [:new, :create]
   resource :session, only: [:new, :create, :destroy]
   resources :static_pages, only: [:root]
 
   namespace :api, defaults: { format: :json } do
+    resources :users, only: [:show]
     resources :photos do
       resources :comments
       resources :likes
