@@ -55,6 +55,6 @@ barry_photo_4 = barry.photos.new({
   })
 
 bruce_follow_barry = bruce.follows.new({
-  follwer_id: bruce.id;
+  follwer_id: bruce.id,
   follow_id: barry.id
   })
