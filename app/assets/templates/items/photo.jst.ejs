@@ -1,14 +1,28 @@
-<a href="/#/users/<%= photo.escape("user_id") %>" >  <strong> <%= photo.escape("username") %> </strong> </a> ||
-<%= photo.escape("caption") %> ||
-
-<% if (photo.comments().length == 1 ) { %>
-<%= photo.comments().length + " Comment" %>
-<% } else {%>
-<%=  photo.comments().length + " Comments" %>
-<% } %> ||
-
-<%= photo.likes().length %> Likes <br>
 
 <a href="/#/photos/<%= photo.id%>">
-<img src="<%= photo.escape("img_url") %>" alt="alt title" >
+<img src="<%= photo.escape("img_url") %>" alt="alt title" class="index-photo" >
 </a>
+
+<div class="panel panel-default index-photo-panel" >
+  <div class="panel-heading clearfix">
+    <% if (photo.comments().length == 1 ) { %>
+      <div class="index-photo-comment-stat"><%= "  " + photo.comments().length + " Comment  " %></div>
+    <% } else {%>
+      <div class="index-photo-comment-stat"><%= "  " + photo.comments().length + " Comments  " %></div>
+    <% } %>
+
+    <div class="index-photo-like-stat">  <%= photo.likes().length %> Likes  </div>
+  </div>
+
+  <div class="panel-body" >
+    <a href="/#/users/<%= photo.escape("user_id") %>" class="index-photo-username" >
+      <strong> <%= photo.escape("username") %> </strong>
+    </a>
+    <%= photo.escape("caption") %>
+  </div>
+
+  <div class="panel-footer" >
+    Comments Box....
+  </div>
+
+</div>

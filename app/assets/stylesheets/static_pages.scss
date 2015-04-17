@@ -107,7 +107,7 @@ div.panel-body > img.profile-pic {
   float: right;
 }
 
-div.panel-body > a {
+div.panel-body > a.photo-show-username-link {
   display: block;
   padding-top: 35px;
 }
@@ -225,6 +225,56 @@ div.photo-index {
   max-width: 1024px;
   margin: auto;
 }
+
+ul.photo-list {
+  list-style-type: none;
+  padding-left: 0px;
+}
+
+div.index-photo-panel {
+  width: 80%;
+  margin: auto;
+}
+
+img.index-photo {
+  max-width: 80%;
+  max-height: 80%;
+  padding-top: 20px;
+  border-radius: 0.25em;
+}
+
+a.index-photo-username {
+  padding-top: 0px;
+}
+
+div.index-photo-comment-stat {
+  border: 1px solid gray;
+  border-radius: 0.25em;
+  background: #517FA4;
+  color: white;
+  display: inline-block;
+  float: left;
+  padding: 0 10px;
+}
+
+div.index-photo-like-stat {
+  border: 1px solid gray;
+  border-radius: 0.25em;
+  background: #517FA4;
+  color: white;
+  display: inline-block;
+  float: right;
+  padding: 0 10px;
+}
+
+div.index-photo-comment-stat:hover {
+  background: gray;
+}
+
+div.index-photo-like-stat:hover {
+  background: gray;
+}
+
 
 .clearfix:after {
   visibility: hidden;
