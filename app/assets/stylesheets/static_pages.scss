@@ -13,13 +13,8 @@ img#photo-show {
   max-height: 100%;
   max-width: 100%;
   position: relative;
-  left: -50%;
-}
-
-div.inner-img {
-  position: relative;
-  float: left;
-  left: 50%;
+  display: block;
+  margin: 0 auto;
 }
 
 div.img-container{
@@ -81,6 +76,40 @@ button.like {
 button.unlike {
   display: inline-block;
   float:right;
+}
+
+h3.comments-title {
+  margin: auto;
+  color: white;
+}
+
+.comment-index-panel {
+  margin-top: 40px;
+}
+
+.new-comment-label {
+  color: white;
+}
+
+div.panel-default > div.comment-index-panel-head-foot {
+  background-color: #5684A8;
+  // background-color: #DCDCDC;
+}
+
+h2#username-title {
+  margin: auto;
+  display: inline-block;
+  float: left;
+}
+
+div.panel-body > img.profile-pic {
+  // display: inline-block;
+  float: right;
+}
+
+div.panel-body > a {
+  display: block;
+  padding-top: 35px;
 }
 
 

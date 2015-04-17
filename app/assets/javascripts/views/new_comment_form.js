@@ -3,7 +3,7 @@ Instaset.Views.NewCommentForm = Backbone.View.extend({
 
   tagName: "form",
 
-  className: "new-comment",
+  className: "new-comment input-group",
 
   initialize: function(options) {
     this.photo = options.photo;

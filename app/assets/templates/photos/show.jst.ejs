@@ -1,31 +1,34 @@
 <div class="photo" >
-<div class="panel panel-default" >
-<div class="panel-heading" >
-<h4> <%= photo.escape("caption") %> </h4>
-</div>
-<div class="panel-body" >
-  <div class="inner-img">
-  <img class="photo-show" id="photo-show" src="<%= photo.escape("img_url") %>">
-  </div>
-</div>
+  <div class="panel panel-default" >
+    <div class="panel-heading" >
+      <h4> <%= photo.escape("caption") %> </h4>
+    </div>
+    <div class="panel-body" >
+      <div class="inner-img">
+        <img class="photo-show" id="photo-show" src="<%= photo.escape("img_url") %>">
+      </div>
+    </div>
 
-<div class="panel-footer" >
-  <h3 class="like-stat"> <%= photo.likes().length %> Likes </h3>
+    <div class="panel-footer" >
+      <h3 class="like-stat"> <%= photo.likes().length %> Likes </h3>
 
-  <div class="like-button"></div>
-<br>
-  <div class="comments-index" >
+      <div class="like-button"></div>
+        <br>
+      <div class="comments-index" ></div>
+    </div>
   </div>
-</div>
-</div>
 </div>
 
 <div class="sidebar" >
 <div class="panel panel-default" >
 <div class="panel-body" >
 
-  <h2> <%= photo.escape("username")%>  </h2>
-  <a href="/#/users/<%= photo.escape("user_id") %>"> <%= photo.escape("username")%>'s Photos </a>
+
+  <img src="<%= photo.escape("profile_pic") %>" class="profile-pic">
+  <h2 id="username-title"> <%= photo.escape("username")%>  </h2>
+  <a href="/#/users/<%= photo.escape("user_id") %>">
+     <%= photo.escape("username")%>'s Photos
+   </a>
 </div>
 
 <div class="panel-footer" >

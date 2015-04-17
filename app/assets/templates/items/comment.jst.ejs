@@ -1,3 +1,9 @@
+<% if (!comment.get("author")) { %>
+ <a href="/#/users/<%= Instaset.currentUser.id %>" >
+   <strong> <%= Instaset.currentUser.username %> </strong>
+ </a>
+<% } %>
+<a href="/#/users/<%= comment.escape("author_id")%>" >
+  <strong> <%= comment.get("author") %> </strong>
+</a>
 <%= comment.escape("body") %>
-<br>
-<strong> <%= comment.get("author") %> </strong>

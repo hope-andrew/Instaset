@@ -10,6 +10,8 @@ end
 
 json.username @photo.user.username
 
+json.profile_pic @photo.user.photos.first.img_url
+
 # json.likes @photo.likers do |liker|
 #   json.liker liker.username
 # end
