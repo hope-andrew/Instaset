@@ -1,6 +1,11 @@
 <div class="outer-div container-fluid">
   <div class="row well well-lg" >
     <div class="col-md-8">
+      <% if (photos.length > 0) { %>
+        <div class="profile-pic-container" >
+          <img src="<%= photos.first().get("img_url") %>" class="profile-pic">
+        </div>
+      <% } %>
       <h2 class="name-title"><%= user.escape("username") %></h2>
     </div>
     <div class="col-md-4" >
@@ -26,7 +31,7 @@
 
         <div class="panel-footer">
           <%= photo.escape("caption") %>
-          <span class="badge badge-like"><%= photo.get('likes') %></span>
+          <span class="badge badge-like like"><%= photo.get('likes') %></span>
         </div>
       </div>
     </div>

@@ -10,6 +10,7 @@ class Photo < ActiveRecord::Base
     primary_key: :id,
     foreign_key: :liked_photo,
     class_name: "Like",
+    inverse_of: :photo,
     dependent: :destroy
   )
 

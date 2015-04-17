@@ -29,9 +29,11 @@ Instaset.Routers.Router = Backbone.Router.extend({
 
   show: function (id) {
     var photo = this.collection.getOrFetch(id);
-    var photoShow = new Instaset.Views.PhotoShow({ model: photo });
+    var photoShow = new Instaset.Views.PhotoShow({
+      model: photo
+      // collection: photo.likes()
+    });
     this._swapView(photoShow);
-
   },
 
   edit: function() {

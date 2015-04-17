@@ -19,11 +19,18 @@ Instaset.Models.Photo = Backbone.Model.extend({
   likeByCurrentUser: function () {
     if (!this._likeByCurrentUser) {
       this._likeByCurrentUser = new Instaset.Models.Like({}, { photo: this });
+      this.likes().add(this._likeByCurrentUser);
     }
     return this._likeByCurrentUser;
   },
 
   parse: function(response) {
+    if (response.idOfLikeByCurrentUser) {
+      var like = response.idOfLikeByCurrentUser;
+      this.likeByCurrentUser().set(like, {parse: true});
+      delete response.idOfLikeByCurrentUser;
+    }
+
     if (response.comments) {
       this.comments().set(response.comments, {parse: true});
       delete response.comments;
@@ -34,10 +41,6 @@ Instaset.Models.Photo = Backbone.Model.extend({
       delete response.likes;
     }
 
-    if (response.idOfLikeByCurrentUser) {
-      var like = response.idOfLikeByCurrentUser;
-      this.likeByCurrentUser().set(like[like.length - 1], {parse: true});
-    }
     return response;
   }
 });

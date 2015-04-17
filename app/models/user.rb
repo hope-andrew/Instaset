@@ -30,6 +30,7 @@ class User < ActiveRecord::Base
     primary_key: :id,
     foreign_key: :liker,
     class_name: "Like",
+    inverse_of: :user,
     dependent: :destroy
   )
 
@@ -68,7 +69,7 @@ class User < ActiveRecord::Base
     Follow.where(follow_id: self.id)
   end
 
-  def likes
+  def total_user_likes
     photo_ids_arr = self.photos.map{|photo| photo.id }
     Like.where(liked_photo: photo_ids)
   end

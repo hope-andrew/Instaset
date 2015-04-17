@@ -31,7 +31,8 @@ Instaset.Views.Like = Backbone.View.extend({
   unlike: function(event) {
     this.model.destroy({
       success: function (model, response, options) {
-        model.set({ id: null });
+        model.unset("id");
+        // model.set({ id: null });
       }.bind(this)
     });
   }

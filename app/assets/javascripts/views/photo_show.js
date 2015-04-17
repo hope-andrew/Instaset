@@ -3,8 +3,9 @@ Instaset.Views.PhotoShow = Backbone.CompositeView.extend({
 
   initialize: function() {
     this.collection = this.model.likes();
-    this.listenTo(this.model, "sync add destroy", this.render);
-    this.listenTo(this.collection, "sync add remove", this.render);
+    this.listenTo(this.model, "sync", this.render);
+    this.listenTo(this.model.likes(), "sync add remove destroy", this.render);
+    // this.listenTo(this.collection, "sync add remove", this.render);
 
     var likeView = new Instaset.Views.Like({
       model: this.model.likeByCurrentUser(),
