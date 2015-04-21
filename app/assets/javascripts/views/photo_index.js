@@ -9,7 +9,7 @@ Instaset.Views.PhotoIndex = Backbone.CompositeView.extend({
   },
 
   initialize: function() {
-    this.listenTo(this.collection, "sync route", this.render);
+    this.listenTo(this.collection, "sync", this.render);
     this.listenTo(this.collection, 'add', this.addExtraPhoto);
 
     var newForm = new Instaset.Views.NewPhotoForm({collection: this.collection});

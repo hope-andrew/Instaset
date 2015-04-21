@@ -1,15 +1,26 @@
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
-    <a class="navbar-brand" href="#">
-      <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+  <div class="row">
+    <div class="col-md-4">
+      <a class="navbar-brand" href="#">
+        <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
       </a>
-      <a class="navbar-brand" style="margin-left:45%" href="#">
-        <%= image_tag "instaset.png" %>
+    </div>
+
+    <div class="col-md-4">
+      <a class="navbar-brand navbar-logo" href="#">
+        Instaset
       </a>
+    </div>
+
+    <div class="col-md-4">
+
       <% if signed_in? %>
       <%= button_to "Sign Out", session_url, method: :delete, class: "btn btn-default navbar-btn navbar-right" %>
       <% end %>
       <p class="navbar navbar-text navbar-right navbar-username" > <%= current_user.username %> </p>
+    </div>
+  </div>
   </div>
 </nav>
 <div class="backdrop" >

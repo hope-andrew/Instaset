@@ -6,7 +6,7 @@ class StaticPagesController < ApplicationController
     if signed_in?
       render :root
     else
-      render :splash
+      render :splash2
     end
   end
 end

@@ -68,6 +68,11 @@ span.stat-label:hover {
   float: left;
 }
 
+.navbar-logo {
+  width: 100%;
+  text-align: center;
+}
+
 button.like {
   display: inline-block;
   float:right;
@@ -138,6 +143,7 @@ div.photos {
   float: left;
   width: 50%;
   margin: 0 auto;
+  margin-left: 25%;
   background: #E0E1E2 url("//instagramstatic-a.akamaihd.net/bluebar/5021840/images/shared/noise-2.png");
   box-shadow: 1px 0 2px gray inset, -1px 0 2px gray inset;
 }
@@ -153,7 +159,15 @@ div.sidebar {
   display: inline-block;
   float: right;
   width: 25%;
+  // margin: 20px;
+}
+
+div.sidebar-show {
   margin: 20px;
+}
+
+.new-photo-panel {
+  margin: 5px;
 }
 
 img.photo-show {
@@ -222,7 +236,7 @@ div.backdrop {
 
 div.photo-index {
   text-align: center;
-  max-width: 1024px;
+  max-width: 2000px;
   margin: auto;
 }
 
@@ -283,4 +297,56 @@ div.index-photo-like-stat:hover {
   content: " ";
   clear: both;
   height: 0;
+}
+
+
+// SPALSH2.HTML.ERB STYLE (HOMEPAGE/SPLASH) //
+
+.splash-head {
+  background: #4C7A9F url("//instagramstatic-a.akamaihd.net/bluebar/5021840/images/shared/noise-2.png");
+  height: 280px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  box-shadow: inset 0px -13px 120px -30px rgba(0,0,0,1);
+}
+
+.left-photo {
+  display: inline-block;
+  float:left;
+  border: 1px solid gray;
+  padding: 10px;
+  background: #EBECEE;
+  box-shadow: 3px 3px 5px #888888, -3px 3px 5px #888888;
+}
+
+.right-panel {
+  display: inline-block;
+  float: right;
+}
+
+div.wrapper-home {
+  width: 80%;
+  margin: 150px auto;
+}
+
+div.footer-home {
+  text-align: center;
+  color: white;
+  font-weight: 200;
+  font-size: smaller;
+}
+
+div.footer-home > a {
+  color: white;
+}
+
+nav.navbar-fixed-bottom {
+  min-height: 20px;
+  max-height: 40px;
+  min-width: 400px;
+  max-width: 2000px;
 }
