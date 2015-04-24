@@ -9,15 +9,15 @@ Instaset is a clone of Instagram for sunsets built on Rails and Backbone. Users 
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
-- [ ] Create accounts
-- [ ] Create sessions (log in)
-- [ ] Post a photo
-- [ ] Post a caption for their photo
-- [ ] View the photos that they posted
-- [ ] Like a photo
-- [ ] Comment on a photo
-- [ ] Follow other Instaset users
-- [ ] View photos of the users they follow
+- [x] Create accounts
+- [x] Create sessions (log in)
+- [x] Post a photo
+- [x] Post a caption for their photo
+- [x] View the photos that they posted
+- [x] Like a photo
+- [x] Comment on a photo
+- [x] Follow other Instaset users
+- [x] View photos of the users they follow
 
 
 
@@ -67,8 +67,8 @@ able to like and comment on photos and view the users that like a photo.
 
 ### Bonus Features (TBD)
 
-- [ ] Have a feed of photos
-- [ ] Have the feed feature recent photos from followers
+- [x] Have a feed of photos
+- [x] Have the feed feature recent photos from followers
 - [ ] Tag other users in photos
 - [ ] Stamp a time when the sunset occurred
 - [ ] View a timeline of stamped photos
