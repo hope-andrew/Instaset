@@ -315,22 +315,67 @@ div.index-photo-like-stat:hover {
 }
 
 .left-photo {
+  position: relative;
   display: inline-block;
   float:left;
   border: 1px solid gray;
   padding: 10px;
   background: #EBECEE;
   box-shadow: 3px 3px 5px #888888, -3px 3px 5px #888888;
+
+}
+
+// SPLASH PAGE PHOTO ANIMATION
+.sunset-home {
+  height: 500px;
+  width: 500px;
+  max-height: 500px;
+  max-width: 500px;
+  position: absolute;
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+  -webkit-animation-duration: 10s;
+  animation-duration: 10s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count:infinite;
+  -webkit-animation-iteration-count:infinite;
+}
+
+.sunset-home-2 {
+  height: 500px;
+  width: 500px;
+  max-height: 500px;
+  max-width: 500px;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {opacity: 1;}
+  40% {opacity: 1;}
+  50% {opacity: 0;}
+  90% {opacity: 0;}
+  100% {opacity: 1;}
+
+}
+@keyframes fadeIn {
+  0% {opacity: 1;}
+  40% {opacity: 1;}
+  50% {opacity: 0;}
+  90% {opacity: 0;}
+  100% {opacity: 1;}
 }
 
 .right-panel {
   display: inline-block;
   float: right;
+  width: calc(90% - 520px)
 }
 
 div.wrapper-home {
-  width: 80%;
-  margin: 150px auto;
+  width: 90%;
+  margin: 100px auto;
 }
 
 div.footer-home {
@@ -344,7 +389,8 @@ div.footer-home > a {
   color: white;
 }
 
-nav.navbar-fixed-bottom {
+nav.navbar-bottom {
+  margin: auto;
   min-height: 20px;
   max-height: 40px;
   min-width: 400px;
