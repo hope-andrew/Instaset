@@ -21,5 +21,12 @@
     <%= photo.escape("caption") %>
   </div>
 
+  <% if (photo.comments()) { %>
+  <div class="panel-footer" >
+    <strong>Comments:</strong>
+    <ul class="comments-index-list">
+    </ul>
+  </div>
+  <% } %>
 
 </div>
