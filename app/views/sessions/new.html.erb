@@ -10,7 +10,7 @@
 <label> Password </label>
 <input type="password" name="user[password]" class="password">
 
-<input type="submit" value="Sign In" >
+<input type="submit" value="Sign In" id="signin-button-2" >
 </form>
 
 <br>
@@ -29,7 +29,10 @@
   $(function(){
     var options2 = {
       strings: ["password"],
-      typeSpeed: 0
+      typeSpeed: 0,
+      onStringTyped: function() {
+        $("#signin-button-2").trigger("click")
+      }
     }
     var options = {
       strings: ["GuestUser123"],
