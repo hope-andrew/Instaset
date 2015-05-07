@@ -14,19 +14,25 @@
     <div class="index-photo-like-stat">  <%= photo.likes().length %> Likes  </div>
   </div>
 
-  <div class="panel-body" >
-    <a href="/#/users/<%= photo.escape("user_id") %>" class="index-photo-username" >
-      <strong> <%= photo.escape("username") %> </strong>
+  <div class="panel-body caption" >
+    <div class="caption-div">
+      <a href="/#/users/<%= photo.escape("user_id") %>" class="index-photo-username" >
+        <strong> <%= photo.escape("username") %> </strong>
+      </a>
+      <%= photo.escape("caption") %>
+    </div>
+    <a href="/#/users/<%= photo.escape("user_id") %>" class="index-profile-pic" >
+      <img src="<%= photo.escape("profile_pic") %>" class="profile-pic feed-profile-pic">
     </a>
-    <%= photo.escape("caption") %>
   </div>
 
-  <% if (photo.comments()) { %>
-  <div class="panel-footer" >
+   <div class="panel-footer footer-comments" >
+  <% if (photo.comments().length > 0 ) { %>
     <strong>Comments:</strong>
+  <% } %>
+
     <ul class="comments-index-list">
     </ul>
   </div>
-  <% } %>
 
 </div>

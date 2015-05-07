@@ -9,6 +9,9 @@ json.pics do
 
     json.extract! pic.user, :username
 
+    json.profile_pic pic.user.photos.first.img_url
+
+
     json.likes pic.likers do |liker|
       json.liker liker.username
     end

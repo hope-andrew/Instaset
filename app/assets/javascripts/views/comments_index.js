@@ -3,10 +3,9 @@ Instaset.Views.CommentsIndex = Backbone.CompositeView.extend({
 
   initialize: function(options) {
     this.photo = options.photo;
-    this.listenTo(this.collection, "sync add", this.render);
+    this.listenTo(this.collection, "sync", this.render);
     this.listenTo(this.collection, "add", this.addComment);
 
-    this.renderComments();
 
     var newCommentForm = new Instaset.Views.NewCommentForm({ collection: this.collection, photo: this.photo});
     this.addSubview("div.new-comment", newCommentForm);
