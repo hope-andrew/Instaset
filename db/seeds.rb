@@ -32,7 +32,7 @@ bruce_photo_2.save
 
 bruce_photo_3 = bruce.photos.new({
   user_id: bruce.id,
-  img_url: "http://wac.450f.edgecastcdn.net/80450F/929jackfm.com/files/2012/09/beautiful-sunset-at-the-university-at-buffalo-buffalove-@andrewjustsaid-Instagram.jpg",
+  img_url: "https://www.filepicker.io/api/file/DXZ99DuScGh4B62I5gbQ",
   caption: "Magic Hour"})
 bruce_photo_3.save
 
