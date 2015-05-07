@@ -9,12 +9,14 @@ Instaset.Views.PhotoIndex = Backbone.CompositeView.extend({
   },
 
   initialize: function() {
-    this.listenTo(this.collection, "sync", this.render);
-    this.listenTo(this.collection, 'add', this.addExtraPhoto);
+    this.listenTo(this.collection, "sync", this.renderPhotos);
+    this.listenTo(this.collection, "add", this.addExtraPhoto);
+    // this.listenTo(this.collection, 'add', this.addExtraPhoto);
 
     var newForm = new Instaset.Views.NewPhotoForm({collection: this.collection});
     this.addSubview("div.sidebar", newForm);
-    this.renderPhotos();
+    // this.renderPhotos();
+    // this.render();
   },
 
 
@@ -22,22 +24,23 @@ Instaset.Views.PhotoIndex = Backbone.CompositeView.extend({
     var renderedContent = this.template({  photos: this.collection });
     this.$el.html(renderedContent);
 
-    this.attachSubviews(true);
+    this.attachSubviews();
     return this;
   },
 
   renderPhotos: function() {
+    $("ul.photo-list").empty();
     this.collection.each(this.addPhoto.bind(this));
   },
 
   addPhoto: function(photo) {
     var view = new Instaset.Views.PhotoItem({ model: photo });
-    this.addSubview("ul.photo-list", view);
+    this.addSubview("ul.photo-list", view, true);
   },
 
   addExtraPhoto: function(photo) {
     var view = new Instaset.Views.PhotoItem({ model: photo });
-    this.unshiftSubview("ul.photo-list", view);
+    this.addSubview("ul.photo-list", view, true);
   },
 
   loadMore: function(event) {
